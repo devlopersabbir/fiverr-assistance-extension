@@ -1,0 +1,33 @@
+{
+  "name": "Fiverr Assistance Pro",
+  "description": "Developer sabbir Fiverr new assistance - Data Analytics and Gig Rank Checking Services for Freelancers",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Fiverr Assistance Pro",
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "icon.png",
+      "24": "icon.png",
+      "32": "icon.png"
+    }
+  },
+  "permissions": ["storage", "alarms", "notifications"],
+  "icons": {
+    "128": "icon.png",
+    "16": "icon.png",
+    "256": "icon.png",
+    "48": "icon.png"
+  },
+  "background": {
+    "service_worker": "src/background/background.ts"
+  },
+  "content_scripts": [
+    {
+      "js": ["src/content/content.ts"],
+      "matches": ["https://www.fiverr.com/*"]
+    }
+  ],
+  "host_permissions": ["https://www.fiverr.com/conversations/*"],
+  "options_page": "src/options/index.html"
+}
